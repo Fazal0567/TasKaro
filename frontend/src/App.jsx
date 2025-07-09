@@ -4,7 +4,7 @@ import Login from "./components/Login";
 import SignUp from "./components/SignUp";
 import Layout from "./components/Layout";
 import Dashboard from "./pages/Dashboard";
-import PendingPage from "./pages/PendingPAge";
+import PendingPage from "./pages/PendingPage";
 import CompletePage from "./pages/CompletePage";
 import Profile from "./components/Profile";
 
