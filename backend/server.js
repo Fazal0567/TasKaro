@@ -6,11 +6,10 @@ import { connectDB } from "./config/db.js";
 import taskRouter from "./routes/taskRoute.js";
 
 const app = express();
-const port = process.env.PORT || 4000;
 
 // ✅ CORS CONFIGURATION
 const corsOptions = {
-	origin: process.env.CLIENT_URL || "http://localhost:3000", // frontend domain
+	origin: "https://taskaro-hd97.onrender.com", // frontend domain
 	methods: ["GET", "POST", "PUT", "DELETE"],
 	credentials: true,
 	optionsSuccessStatus: 200,
@@ -34,5 +33,5 @@ app.get("/", (req, res) => {
 
 // START SERVER
 app.listen(port, () => {
-	console.log(`🚀 Server started on http://localhost:${port}`);
+	console.log(`🚀 Server is live}`);
 });
