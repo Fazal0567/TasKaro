@@ -32,6 +32,6 @@ app.get("/", (req, res) => {
 });
 
 // START SERVER
-app.listen(port, () => {
+app.listen(() => {
 	console.log(`🚀 Server is live}`);
 });
