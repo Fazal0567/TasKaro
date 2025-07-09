@@ -25,7 +25,7 @@ import axios from "axios";
 import TaskItem from "../components/TaskItem";
 import TaskModal from "../components/TaskModal";
 
-const API_BASE = "http://localhost:4000/api/task";
+const API_BASE = "https://taskaro-ybh1.onrender.com/api/task";
 
 const Dashboard = () => {
 	const { tasks, refreshTasks } = useOutletContext();
