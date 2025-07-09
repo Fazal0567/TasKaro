@@ -21,7 +21,7 @@ import {
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const API_URL = "http://localhost:4000";
+const API_URL = "https://taskaro-ybh1.onrender.com";
 const Profile = ({ setCurrentUser, onLogout }) => {
 	const [profile, setProfile] = useState({ name: "", email: "" });
 	const [passwords, setPasswords] = useState({
