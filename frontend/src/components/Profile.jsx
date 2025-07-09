@@ -22,6 +22,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const API_URL = "https://taskaro-ybh1.onrender.com";
+
 const Profile = ({ setCurrentUser, onLogout }) => {
 	const [profile, setProfile] = useState({ name: "", email: "" });
 	const [passwords, setPasswords] = useState({
@@ -30,6 +31,7 @@ const Profile = ({ setCurrentUser, onLogout }) => {
 		confirm: "",
 	});
 	const navigate = useNavigate();
+
 	useEffect(() => {
 		const token = localStorage.getItem("token");
 		if (!token) return;
@@ -52,13 +54,15 @@ const Profile = ({ setCurrentUser, onLogout }) => {
 			const { data } = await axios.put(
 				`${API_URL}/api/user/profile`,
 				{ name: profile.name, email: profile.email },
-				{ headers: { Authorization: `Bearer ${token}` } },
+				{ headers: { Authorization: `Bearer ${token}` } }
 			);
 			if (data.success) {
 				setCurrentUser((prev) => ({
 					...prev,
 					name: profile.name,
-					avatar: `https://ui-avatars.com/api/?name=${encodeURIComponent(profile.name)}&background=random`,
+					avatar: `https://ui-avatars.com/api/?name=${encodeURIComponent(
+						profile.name
+					)}&background=random`,
 				}));
 				toast.success("Profile Updated");
 			} else toast.error(data.message);
@@ -70,17 +74,17 @@ const Profile = ({ setCurrentUser, onLogout }) => {
 	const changePassword = async (e) => {
 		e.preventDefault();
 		if (passwords.new !== passwords.confirm) {
-			return toast.error("Password do not match");
+			return toast.error("Passwords do not match");
 		}
 		try {
 			const token = localStorage.getItem("token");
 			const { data } = await axios.put(
 				`${API_URL}/api/user/password`,
 				{ currentPassword: passwords.current, newPassword: passwords.new },
-				{ headers: { Authorization: `Bearer ${token}` } },
+				{ headers: { Authorization: `Bearer ${token}` } }
 			);
 			if (data.success) {
-				toast.success("Password Changes");
+				toast.success("Password Changed");
 				setPasswords({ current: "", new: "", confirm: "" });
 			} else toast.error(data.message);
 		} catch (err) {
@@ -113,6 +117,7 @@ const Profile = ({ setCurrentUser, onLogout }) => {
 					</div>
 				</div>
 				<div className="grid md:grid-cols-2 gap-8">
+					{/* PERSONAL INFORMATION */}
 					<section className={SECTION_WRAPPER}>
 						<div className="flex items-center gap-2 mb-6">
 							<UserCircle className="text-purple-500 w-5 h-5" />
@@ -120,7 +125,6 @@ const Profile = ({ setCurrentUser, onLogout }) => {
 								Personal Information
 							</h2>
 						</div>
-						{/* PERSONAL INFO NAME, EMAIL */}
 						<form onSubmit={saveProfile} className="space-y-4">
 							{personalFields.map(({ name, type, placeholder, icon: Icon }) => (
 								<div key={name} className={INPUT_WRAPPER}>
@@ -142,6 +146,8 @@ const Profile = ({ setCurrentUser, onLogout }) => {
 							</button>
 						</form>
 					</section>
+
+					{/* SECURITY */}
 					<section className={SECTION_WRAPPER}>
 						<div className="flex items-center gap-2 mb-6">
 							<Shield className="text-purple-500 w-5 h-5" />
@@ -163,7 +169,8 @@ const Profile = ({ setCurrentUser, onLogout }) => {
 									/>
 								</div>
 							))}
-							<button type="button" className={FULL_BUTTON}>
+							{/* ✅ FIXED: Button type is now submit */}
+							<button type="submit" className={FULL_BUTTON}>
 								<Shield className="w-4 h-4" /> Change Password
 							</button>
 							<div className="mt-8 pt-6 border-t border-purple-100">
