@@ -6,6 +6,7 @@ import { connectDB } from "./config/db.js";
 import taskRouter from "./routes/taskRoute.js";
 
 const app = express();
+const port = process.env.PORT || 4000;
 
 // ✅ CORS CONFIGURATION
 const corsOptions = {
@@ -31,7 +32,7 @@ app.get("/", (req, res) => {
 	res.send("API WORKING");
 });
 
-// START SERVER
-app.listen(() => {
-	console.log(`🚀 Server is live}`);
+// ✅ START SERVER
+app.listen(port, () => {
+	console.log(`🚀 Server is live at http://localhost:${port}`);
 });
