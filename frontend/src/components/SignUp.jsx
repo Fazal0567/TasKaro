@@ -10,7 +10,7 @@ import {
 } from "../assets/dummy";
 import axios from "axios";
 
-const API_URL = "http://localhost:4000";
+const API_URL = "https://taskaro-ybh1.onrender.com";
 const INITIAL_FORM = { name: "", email: "", password: "" };
 
 const SignUp = ({ onSwitchMode }) => {
