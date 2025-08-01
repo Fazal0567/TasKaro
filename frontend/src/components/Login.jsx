@@ -28,7 +28,7 @@ const Login = ({ onSubmit, onSwitchMode }) => {
 					if (data.success) {
 						onSubmit?.({ token, userId, ...data.user });
 						toast.success("Session restored, Redirecting...");
-						navigate("/profile");
+						navigate("/");
 					} else {
 						localStorage.clear();
 					}
@@ -137,7 +137,7 @@ const Login = ({ onSubmit, onSwitchMode }) => {
 				</div>
 				<button type="submit" className={BUTTON_CLASSES} disabled={loading}>
 					{loading ? (
-						"Loading in..."
+						"Logging in..."
 					) : (
 						<>
 							<LogIn className="w-4 h-4" /> Log In
