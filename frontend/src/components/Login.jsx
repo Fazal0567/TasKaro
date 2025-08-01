@@ -28,7 +28,7 @@ const Login = ({ onSubmit, onSwitchMode }) => {
 					if (data.success) {
 						onSubmit?.({ token, userId, ...data.user });
 						toast.success("Session restored, Redirecting...");
-						navigate("/");
+						navigate("/profile");
 					} else {
 						localStorage.clear();
 					}
