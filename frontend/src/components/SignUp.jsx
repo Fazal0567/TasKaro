@@ -39,7 +39,7 @@ const SignUp = ({ onSwitchMode }) => {
 
 			// ✅ Redirect to dashboard (home)
 			setTimeout(() => {
-				navigate("/");
+				navigate("/profile");
 			}, 1000);
 
 		} catch (err) {
