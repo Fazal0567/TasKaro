@@ -10,7 +10,7 @@ const port = process.env.PORT || 4000;
 
 // ✅ CORS CONFIGURATION
 const corsOptions = {
-	origin: "https://taskflow-9rsh.onrender.com/", // frontend domain
+	origin: "https://taskflow-9rsh.onrender.com", // frontend domain
 	methods: ["GET", "POST", "PUT", "DELETE"],
 	credentials: true,
 	optionsSuccessStatus: 200,
