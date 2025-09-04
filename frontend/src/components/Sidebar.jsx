@@ -98,12 +98,12 @@ const Sidebar = ({ user, tasks }) => {
 										Use keyboard shortcuts to boost productivity!
 									</p>
 									<a
-										href="https://github.com/bchipanav"
+										href="https://mohd-fazal-ali.onrender.com"
 										target="_blank"
 										className="block mt-2 text-sm text-purple-500 hover:underline"
 										rel="noreferrer"
 									>
-										Visit my repository!
+										Visit my portfolio !
 									</a>
 								</div>
 							</div>
